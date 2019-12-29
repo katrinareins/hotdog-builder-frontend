@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function(){
 
     let hotdogsURL = `http://localhost:3000/hotdogs`
+    let usersURL = `http://localhost:3000/users`
 
     getAllHotdogs();
 
@@ -125,7 +126,35 @@ document.addEventListener('DOMContentLoaded', function(){
         hotdog_list.appendChild(div)
     }
 
+    // get new user info
+    document.getElementById('sign-up-button').onclick = function(event){
+        event.preventDefault()
+        let name = document.getElementById('inpName').value 
+        postUser(name)
+    }
 
+    // post new user
+    function postUser(name){
+        fetch(usersURL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+            },
+            body: JSON.stringify({
+                name: name 
+            })
+        })
+        .then(resp => resp.json())
+        .then(json => {
+            activeUser = (json)
+        })
+    }
+
+    // show new user name as logged in
+    function showActiveUser(name){
+
+    }
 
 
 
