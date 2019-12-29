@@ -147,13 +147,24 @@ document.addEventListener('DOMContentLoaded', function(){
         })
         .then(resp => resp.json())
         .then(json => {
-            activeUser = (json)
+            setLocalStorage(json)
         })
     }
 
-    // show new user name as logged in
-    function showActiveUser(name){
+    // set local storage value
+    function setLocalStorage(user){
+        localStorage.setItem(user.id, user.name)
+        showActiveUser(user)
+    }
 
+    // show new user name as logged in
+    function showActiveUser(user){
+        let div = document.getElementById('signed-in-as')
+
+        let nameField = document.createElement('p')
+        nameField.textContent = user.name
+
+        div.appendChild(nameField)
     }
 
 
