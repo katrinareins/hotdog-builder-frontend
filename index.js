@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function(){
     let usersURL = `http://localhost:3000/users`
 
     getAllHotdogs();
+    hideActiveUser();
 
     // list of condiments to select from
     let condimentArray = ["ketchup", "mustard", "onions", "jalapenos", "cream cheese", "hot sauce", "sauteed onions", "poppy seed bun", "relish", "dill pickle spear", "tomato slices", "pickled peppers", "celery salt", "all-beef hot dog", "Beyond Sausage Chicago Dog"]
@@ -67,6 +68,11 @@ document.addEventListener('DOMContentLoaded', function(){
         while (ul.firstChild) {
             ul.removeChild(ul.firstChild);
           }
+
+        let condimentDiv = document.getElementsByClassName('new-condiment-div')
+        for(var i = 0; i < condimentDiv.length; i++) {
+            condimentDiv[i].lastChild.checked = false;
+        }
     }
 
     // create (POST) new hotdog
@@ -129,8 +135,12 @@ document.addEventListener('DOMContentLoaded', function(){
     // get new user info
     document.getElementById('sign-up-button').onclick = function(event){
         event.preventDefault()
+
         let name = document.getElementById('inpName').value 
-        postUser(name)
+        postUser(name) // add new user to database
+
+        let nameField = document.getElementById('inpName') // clear input field 
+        nameField.value = ""
     }
 
     // post new user
@@ -155,16 +165,51 @@ document.addEventListener('DOMContentLoaded', function(){
     function setLocalStorage(user){
         localStorage.setItem(user.id, user.name)
         showActiveUser(user)
+        hideSignin()
     }
 
     // show new user name as logged in
     function showActiveUser(user){
+        let activeUserDiv = document.getElementById('show-active-user')
+        activeUserDiv.style.display = "block";
+
         let div = document.getElementById('signed-in-as')
 
         let nameField = document.createElement('p')
+        let signOut = document.createElement('button')
+
         nameField.textContent = user.name
+        signOut.textContent = "Sign out"
 
         div.appendChild(nameField)
+        div.appendChild(signOut)
+
+        signOut.addEventListener('click', function(){
+            let signInDiv = document.getElementById('sign-in-div')
+            signInDiv.style.display = "block";
+
+            let signedInDiv = document.getElementById('show-active-user')
+            signedInDiv.style.display = "none"
+
+            clearLocalStorage()
+        })
+    }
+
+    // clear local storage
+    function clearLocalStorage(){
+        localStorage.clear();
+    }
+
+    // hide sign in form
+    function hideSignin(){
+        let div = document.getElementById('sign-in-div')
+        div.style.display = "none";
+    }
+
+    // hide "Currently signed in as" div
+    function hideActiveUser(){
+        let div = document.getElementById('show-active-user')
+        div.style.display = "none";
     }
 
 
