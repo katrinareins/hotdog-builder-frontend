@@ -1,13 +1,9 @@
+
 document.addEventListener('DOMContentLoaded', function(){
-    console.log(localStorage.getItem("user").split(",")[0])
-    console.log(localStorage.getItem("user").split(",")[1])
 
     let hotdogsURL = `http://localhost:3000/hotdogs`
     let usersURL = `http://localhost:3000/users`
-    // let loggedInUserID = localStorage.getItem("user").split(",")[0]
-    // let loggedInUserName = localStorage.getItem("user").split(",")[1]
 
-    // setLocalStorage();
     getAllHotdogs();
     hideActiveUser();
 
@@ -155,7 +151,11 @@ document.addEventListener('DOMContentLoaded', function(){
             name.textContent = user.name 
             dropdown.appendChild(name)
 
-            // name.addEventListener('click', setLocalStorage(user)) // this signs everyone in
+            name.addEventListener('click', function(event){
+                event.preventDefault();
+                localStorage.clear()
+                setLocalStorage(user)
+            })
         })
     }
 
@@ -189,16 +189,25 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
     // set local storage value
-    function setLocalStorage(user){
-        localStorage.setItem("user", [user.id, user.name]);
+    function setLocalStorage(activeUser){
 
+        // if the id of user matches the id the person logged in - setItem
+        fetch(usersURL)
+        .then(resp => resp.json())
+        .then(json => {
+            json.forEach(user => {
+                if (user.id === activeUser.id) {
+                    localStorage.setItem("user", [user.id, user.name]);
+                    showActiveUser(user.name) // add name of logged in user
+                }
+            })
+        })
         console.log(localStorage)
-        showActiveUser()
         hideSignin()
     }
 
     // show new user name as logged in
-    function showActiveUser(){
+    function showActiveUser(userName){
         let activeUserDiv = document.getElementById('show-active-user')
         activeUserDiv.style.display = "block";
 
@@ -208,7 +217,7 @@ document.addEventListener('DOMContentLoaded', function(){
         let signOut = document.createElement('button')
         let deleteButton = document.createElement('button')
         
-        nameField.textContent = localStorage.getItem("user").split(",")[1]
+        nameField.textContent = userName
         signOut.textContent = "Sign out"
         deleteButton.textContent = "Delete my account"
         
@@ -242,7 +251,6 @@ document.addEventListener('DOMContentLoaded', function(){
     // clear local storage
     function clearLocalStorage(){
         localStorage.clear();
-        console.log(localStorage)
     }
 
     // hide sign in form
@@ -256,9 +264,6 @@ document.addEventListener('DOMContentLoaded', function(){
         let div = document.getElementById('show-active-user')
         div.style.display = "none";
     }
-
-
-
 
 })
 
