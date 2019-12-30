@@ -149,9 +149,10 @@ document.addEventListener('DOMContentLoaded', function(){
             let name = document.createElement('option')
             name.textContent = user.name 
             dropdown.appendChild(name)
+
+            // name.addEventListener('click', setLocalStorage(user)) // this signs everyone in
         })
     }
-
 
     // get new user info
     document.getElementById('sign-up-button').onclick = function(event){
@@ -188,6 +189,7 @@ document.addEventListener('DOMContentLoaded', function(){
         let name = user.name
 
         localStorage.setItem("user", [id, name]);
+
         console.log(localStorage)
 
         showActiveUser()
@@ -196,7 +198,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // show new user name as logged in
     function showActiveUser(){
-        // console.log(user)
         let activeUserDiv = document.getElementById('show-active-user')
         activeUserDiv.style.display = "block";
 
@@ -204,13 +205,15 @@ document.addEventListener('DOMContentLoaded', function(){
 
         let nameField = document.createElement('p')
         let signOut = document.createElement('button')
-
+        let deleteButton = document.createElement('button')
         
         nameField.textContent = localStorage.getItem("user").split(",")[1]
         signOut.textContent = "Sign out"
+        deleteButton.textContent = "Delete my account"
         
         div.appendChild(nameField)
         div.appendChild(signOut)
+        div.appendChild(deleteButton)
         
         signOut.addEventListener('click', function(){
             clearLocalStorage()
@@ -224,6 +227,13 @@ document.addEventListener('DOMContentLoaded', function(){
             // remove previously signed in user
             div.removeChild(nameField)
             div.removeChild(signOut)
+        })
+
+        deleteButton.addEventListener('click', function(){
+            fetch(`http://localhost:3000/users/${localStorage.getItem("user").split(",")[0]}`, {
+                method: "DELETE"
+            })
+            alert("Your account has been deleted")
         })
     }
 
