@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function(){
             },
             body: JSON.stringify({
                 condiment: ingredients,
-                user_id: loggedInUserID // this doesn't work yet 
+                user_id: parseInt(localStorage.getItem('user').split(',')[0])
             })
         })
         // .then(resp => console.log(resp))
@@ -214,7 +214,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // show new user name as logged in & sign out functionality
     function showActiveUser(userName){
-        // console.log(localStorage)
+        console.log(localStorage)
         let activeUserDiv = document.getElementById('show-active-user')
         activeUserDiv.style.display = "block";
 
