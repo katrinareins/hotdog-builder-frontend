@@ -142,21 +142,43 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // view dropdown of current users 
     function userDropdown(users){
-        let div = document.getElementById('sign-in-dropdown')
-        let dropdown = document.createElement('select')
-        div.appendChild(dropdown)
+        // let div = document.getElementById('sign-in-dropdown')
+        // let dropdown = document.createElement('select')
+
+        let firstItem = document.createElement('option')
+        firstItem.textContent = "select your name"
+
+        // div.appendChild(dropdown)
+        
+        let dropdown = document.getElementById('selectUser')
+
+        dropdown.appendChild(firstItem)
 
         users.forEach(user => {
             let name = document.createElement('option')
-            name.textContent = user.name 
+            name.textContent = `${user.name} #${user.id}`
             dropdown.appendChild(name)
 
-            name.addEventListener('click', function(event){
-                event.preventDefault();
-                localStorage.clear()
-                setLocalStorage(user)
-            })
+            // name.addEventListener('click', function(){
+            //     localStorage.clear()
+            //     console.log('this works')
+            //     setLocalStorage(user)
+            // })
         })
+
+        // let userID = dropdown.value.split('#')[1]
+        
+        document.querySelector('#signin').addEventListener('click', function(event){
+            event.preventDefault() 
+            let userIDString = document.getElementById('selectUser').value.split('#')[1]
+            let userID = parseInt(userIDString)
+            let userIdObject = {id: userID}
+            // let userName = document.getElementById('selectUser').value.split('#')[0].slice(0, -1)
+            localStorage.clear()
+            console.log('this works')
+            setLocalStorage(userIdObject)
+        })
+
     }
 
     // get new user info
@@ -190,7 +212,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // set local storage value
     function setLocalStorage(activeUser){
-
+        console.log(activeUser)
         // if the id of user matches the id the person logged in - setItem
         fetch(usersURL)
         .then(resp => resp.json())
