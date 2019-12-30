@@ -132,6 +132,27 @@ document.addEventListener('DOMContentLoaded', function(){
         hotdog_list.appendChild(div)
     }
 
+    // get list of all current users
+    fetch(usersURL)
+    .then(resp => resp.json())
+    .then(json => {
+        userDropdown(json); 
+    })
+
+    // view dropdown of current users 
+    function userDropdown(users){
+        let div = document.getElementById('sign-in-dropdown')
+        let dropdown = document.createElement('select')
+        div.appendChild(dropdown)
+
+        users.forEach(user => {
+            let name = document.createElement('option')
+            name.textContent = user.name 
+            dropdown.appendChild(name)
+        })
+    }
+
+
     // get new user info
     document.getElementById('sign-up-button').onclick = function(event){
         event.preventDefault()
@@ -163,13 +184,19 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // set local storage value
     function setLocalStorage(user){
-        localStorage.setItem(user.id, user.name)
-        showActiveUser(user)
+        let id = user.id
+        let name = user.name
+
+        localStorage.setItem("user", [id, name]);
+        console.log(localStorage)
+
+        showActiveUser()
         hideSignin()
     }
 
     // show new user name as logged in
-    function showActiveUser(user){
+    function showActiveUser(){
+        // console.log(user)
         let activeUserDiv = document.getElementById('show-active-user')
         activeUserDiv.style.display = "block";
 
@@ -178,26 +205,32 @@ document.addEventListener('DOMContentLoaded', function(){
         let nameField = document.createElement('p')
         let signOut = document.createElement('button')
 
-        nameField.textContent = user.name
+        
+        nameField.textContent = localStorage.getItem("user").split(",")[1]
         signOut.textContent = "Sign out"
-
+        
         div.appendChild(nameField)
         div.appendChild(signOut)
-
+        
         signOut.addEventListener('click', function(){
+            clearLocalStorage()
+            
             let signInDiv = document.getElementById('sign-in-div')
             signInDiv.style.display = "block";
-
+            
             let signedInDiv = document.getElementById('show-active-user')
             signedInDiv.style.display = "none"
 
-            clearLocalStorage()
+            // remove previously signed in user
+            div.removeChild(nameField)
+            div.removeChild(signOut)
         })
     }
 
     // clear local storage
     function clearLocalStorage(){
         localStorage.clear();
+        console.log(localStorage)
     }
 
     // hide sign in form
