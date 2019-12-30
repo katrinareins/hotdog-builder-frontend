@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
     let hotdogsURL = `http://localhost:3000/hotdogs`
     let usersURL = `http://localhost:3000/users`
+    let currentUserID = parseInt(localStorage.getItem('user').split(',')[0])
+    let currentUserName = localStorage.getItem('user').split(',')[1] 
 
     getAllHotdogs();
     hideActiveUser();
@@ -44,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function(){
         .then(resp => resp.json())
         .then(json => {
             json.forEach(hotdog => {
-                createHotdog(hotdog.condiment)
+                createHotdog(hotdog)
             })
         })
     }
@@ -99,9 +101,12 @@ document.addEventListener('DOMContentLoaded', function(){
         let div = document.getElementById('all-hotdog-list')
 
         let newHotdogDiv = document.createElement('div')
+        newHotdogDiv.id = `HotdogId#${hotdog.user_id}`
+
         let newHotdogIngredients = document.createElement('p')
 
-        newHotdogIngredients.textContent = hotdog
+        newHotdogIngredients.textContent = hotdog.condiment
+
         let deleteButton = document.createElement('button')
         deleteButton.textContent = " X "
 
@@ -113,6 +118,33 @@ document.addEventListener('DOMContentLoaded', function(){
 
         return newHotdogDiv;
     }
+
+    // user can delete only own hotdogs
+    // function getHotdogsForDelete(){
+    //     fetch(hotdogsURL)
+    //     .then(resp => resp.json())
+    //     .then(json => {
+    //         deleteOwnHotdog(json)
+    //     })
+    // }
+
+    // function deleteOwnHotdog(hotdogs){
+    //     hotdogs.forEach(hotdog => {
+    //         if (hotdog.user_id === parseInt(localStorage.getItem('user').split(',')[0])){
+
+    //             console.log(hotdog)
+
+                // let divs = document.getElementsByClassName('new-hotdog-div')
+                // console.log(arr)
+                // divs.forEach(div => {
+                //     let deleteButton = document.createElement('button')
+                //     deleteButton.textContent = " X "
+                //     div.appendChild(deleteButton)
+                //     deleteButton.addEventListener('click', event => deleteHotdog(event, hotdog))
+                // })
+    //         }
+    //     })
+    // }
 
     // delete hotdog from database & remove from DOM
     function deleteHotdog(event, hotdog){
@@ -128,8 +160,10 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // add hotdog to DOM
     function addHotdog(hotdog){
+        let condiment = {condiment: hotdog}
+        
         const hotdog_list = document.getElementById("all-hotdog-list")
-        const div = createHotdog(hotdog)
+        const div = createHotdog(condiment)
         hotdog_list.appendChild(div)
     }
 
@@ -215,6 +249,7 @@ document.addEventListener('DOMContentLoaded', function(){
     // show new user name as logged in & sign out functionality
     function showActiveUser(userName){
         console.log(localStorage)
+
         let activeUserDiv = document.getElementById('show-active-user')
         activeUserDiv.style.display = "block";
 
