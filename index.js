@@ -1,8 +1,13 @@
 document.addEventListener('DOMContentLoaded', function(){
+    console.log(localStorage.getItem("user").split(",")[0])
+    console.log(localStorage.getItem("user").split(",")[1])
 
     let hotdogsURL = `http://localhost:3000/hotdogs`
     let usersURL = `http://localhost:3000/users`
+    // let loggedInUserID = localStorage.getItem("user").split(",")[0]
+    // let loggedInUserName = localStorage.getItem("user").split(",")[1]
 
+    // setLocalStorage();
     getAllHotdogs();
     hideActiveUser();
 
@@ -85,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function(){
             },
             body: JSON.stringify({
                 condiment: ingredients,
-                user_id: 1
+                user_id: loggedInUserID // this doesn't work yet 
             })
         })
         // .then(resp => console.log(resp))
@@ -185,13 +190,9 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // set local storage value
     function setLocalStorage(user){
-        let id = user.id
-        let name = user.name
-
-        localStorage.setItem("user", [id, name]);
+        localStorage.setItem("user", [user.id, user.name]);
 
         console.log(localStorage)
-
         showActiveUser()
         hideSignin()
     }
@@ -233,7 +234,8 @@ document.addEventListener('DOMContentLoaded', function(){
             fetch(`http://localhost:3000/users/${localStorage.getItem("user").split(",")[0]}`, {
                 method: "DELETE"
             })
-            alert("Your account has been deleted")
+            alert("Your account has been deleted");
+            window.location.reload()
         })
     }
 
