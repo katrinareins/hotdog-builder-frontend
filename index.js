@@ -1,10 +1,7 @@
-
 document.addEventListener('DOMContentLoaded', function(){
 
     let hotdogsURL = `http://localhost:3000/hotdogs`
     let usersURL = `http://localhost:3000/users`
-    let currentUserID = parseInt(localStorage.getItem('user').split(',')[0])
-    let currentUserName = localStorage.getItem('user').split(',')[1] 
 
     getAllHotdogs();
     hideActiveUser();
