@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function(){
             })
         })
         // .then(resp => console.log(resp))
-        .catch(resp => console.log(resp))
+        // .catch(resp => console.log(resp))
         addHotdog(ingredients)
     }
 
@@ -140,33 +140,19 @@ document.addEventListener('DOMContentLoaded', function(){
         userDropdown(json); 
     })
 
-    // view dropdown of current users 
+    // view dropdown of current users + selected user gets passed in to localStorage
     function userDropdown(users){
-        // let div = document.getElementById('sign-in-dropdown')
-        // let dropdown = document.createElement('select')
-
         let firstItem = document.createElement('option')
         firstItem.textContent = "select your name"
-
-        // div.appendChild(dropdown)
         
         let dropdown = document.getElementById('selectUser')
-
         dropdown.appendChild(firstItem)
 
         users.forEach(user => {
             let name = document.createElement('option')
             name.textContent = `${user.name} #${user.id}`
             dropdown.appendChild(name)
-
-            // name.addEventListener('click', function(){
-            //     localStorage.clear()
-            //     console.log('this works')
-            //     setLocalStorage(user)
-            // })
         })
-
-        // let userID = dropdown.value.split('#')[1]
         
         document.querySelector('#signin').addEventListener('click', function(event){
             event.preventDefault() 
@@ -175,7 +161,6 @@ document.addEventListener('DOMContentLoaded', function(){
             let userIdObject = {id: userID}
             // let userName = document.getElementById('selectUser').value.split('#')[0].slice(0, -1)
             localStorage.clear()
-            console.log('this works')
             setLocalStorage(userIdObject)
         })
 
@@ -212,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // set local storage value
     function setLocalStorage(activeUser){
-        console.log(activeUser)
+        localStorage.clear()
         // if the id of user matches the id the person logged in - setItem
         fetch(usersURL)
         .then(resp => resp.json())
@@ -220,16 +205,16 @@ document.addEventListener('DOMContentLoaded', function(){
             json.forEach(user => {
                 if (user.id === activeUser.id) {
                     localStorage.setItem("user", [user.id, user.name]);
-                    showActiveUser(user.name) // add name of logged in user
+                    showActiveUser(user.name)
                 }
             })
         })
-        console.log(localStorage)
         hideSignin()
     }
 
-    // show new user name as logged in
+    // show new user name as logged in & sign out functionality
     function showActiveUser(userName){
+        // console.log(localStorage)
         let activeUserDiv = document.getElementById('show-active-user')
         activeUserDiv.style.display = "block";
 
@@ -248,7 +233,7 @@ document.addEventListener('DOMContentLoaded', function(){
         div.appendChild(deleteButton)
         
         signOut.addEventListener('click', function(){
-            clearLocalStorage()
+            localStorage.clear()
             
             let signInDiv = document.getElementById('sign-in-div')
             signInDiv.style.display = "block";
@@ -259,6 +244,8 @@ document.addEventListener('DOMContentLoaded', function(){
             // remove previously signed in user
             div.removeChild(nameField)
             div.removeChild(signOut)
+            div.removeChild(deleteButton)
+            window.location.reload()
         })
 
         deleteButton.addEventListener('click', function(){
@@ -268,11 +255,6 @@ document.addEventListener('DOMContentLoaded', function(){
             alert("Your account has been deleted");
             window.location.reload()
         })
-    }
-
-    // clear local storage
-    function clearLocalStorage(){
-        localStorage.clear();
     }
 
     // hide sign in form
@@ -287,6 +269,8 @@ document.addEventListener('DOMContentLoaded', function(){
         div.style.display = "none";
     }
 
+
+    
 })
 
 
