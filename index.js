@@ -99,6 +99,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
         let newHotdogDiv = document.createElement('div')
         newHotdogDiv.id = `HotdogId#${hotdog.user_id}`
+        newHotdogDiv.className = 'menu-item-div'
 
         let newHotdogIngredients = document.createElement('p')
 

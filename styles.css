@@ -15,22 +15,42 @@
     font-size: 30px;
   } */
 
-  fieldset {
+fieldset {
     margin-bottom: 20px;
-  }
+}
 
-  body {
+body {
     background-color: powderblue;
-  }
+}
 
-  h1 {
+h1 {
     font: ;
   }
 
-  .home-title {
-    background-color: lightgrey;
+  #home-title {
+    background-color: azure;
     width: 300px;
-    border: 15px solid green;
-    padding: 50px;
-    margin: 20px;
+    border: 15px solid palevioletred;
+    padding: 10px;
+    margin: auto;
   }
+
+  #home-header {
+    background-color: darkgreen;
+  }
+
+  .new-condiment-div {
+    background-color: cornflowerblue;
+  }
+
+  .menu-item-div {
+  background-color: crimson;
+}
+
+#sign-in-div {
+  background-color: darkorchid;
+}
+
+#your-creation {
+  background-color: darkseagreen;
+}
