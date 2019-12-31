@@ -38,8 +38,6 @@ document.addEventListener('DOMContentLoaded', function(){
         })
     }
 
-    // add title to condiment 
-
     // create list of all hotdogs
     function getAllHotdogs(){
         fetch(hotdogsURL)

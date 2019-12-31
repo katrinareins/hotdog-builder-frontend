@@ -1,12 +1,12 @@
 /* opacity: 0.5; --> to make items transparent*/ 
 
-.flex-container {
+/* .flex-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     height: 100px;
-  }
+  } */
 
   /* .flex-container > div {
     background-color: #0cbeca;
@@ -70,6 +70,25 @@ h1 {
     font: white;
 }
 
+.hotdog-condiments {
+	display: table;   /* Allows the centering to work */
+	margin: 0 auto;
+}
+
+#your-creation {
+	height: 84px;
+	background: url(images/bar-bg.jpg) repeat-x;
+}
+
+ul#new-hotdog-creation {
+	min-width: 696px;
+	list-style: none;
+	padding-top: 20px;
+	}
+	ul#new-hotdog-creation li {
+		display: inline;
+	}
+
 .make-your-own-div {
   background-color: black;
   font-family: 'Courier Prime', monospace;
@@ -94,7 +113,7 @@ h3 {
   background-color: crimson;
 }
 
-#sign-in-div {
+.sign-in-div-class {
   background-image: url('images/yellow.png');
 }
 
