@@ -1,3 +1,5 @@
+/* opacity: 0.5; --> to make items transparent*/ 
+
 .flex-container {
     display: flex;
     flex-direction: row;
@@ -20,30 +22,40 @@ fieldset {
 }
 
 body {
-    background-color: powderblue;
+  background-image: url("images/hotdog-background-small-transp.png");
+  background-repeat: repeat-y;
 }
 
 h1 {
     font: ;
   }
 
-  #home-title {
-    background-color: azure;
+@keyframes flashing-title {
+  from {background-color: white;}
+  to {background-color:  rgb(235, 49, 111);}
+}
+
+#home-title {
     width: 300px;
-    border: 15px solid palevioletred;
+    border: 7px solid rgb(235, 49, 111);
+    border-style: dotted;
     padding: 10px;
     margin: auto;
-  }
+    align-content: center;
+    animation-name: flashing-title;
+    animation-duration: infinite;
+}
 
-  #home-header {
-    background-color: darkgreen;
-  }
+#home-header {
+    /* background-color: darkgreen; */
+}
 
-  .new-condiment-div {
+.new-condiment-div {
     background-color: cornflowerblue;
-  }
+    font-family: monospace;
+}
 
-  .menu-item-div {
+.menu-item-div {
   background-color: crimson;
 }
 
