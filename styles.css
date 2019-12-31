@@ -54,8 +54,8 @@
   .neon-wrapper {
     background-color: black; 
     padding: 8rem;
-    /* margin: auto;
-    width: fit-content; */
+    margin: auto;
+    width: fit-content;
 
     box-shadow:
     0 0 0.1vw  0.4vw #fff7f7,   
@@ -135,11 +135,12 @@ body {
     font-family: 'Courier Prime', monospace;
     font: white;
     font-size: 20px;
+    float: left;
+    width: 33.33%;
 }
 
 .hotdog-condiments {
 	display: table;   /* Allows the centering to work */
-	margin: 0 auto;
 }
 
 #your-creation {
@@ -165,11 +166,12 @@ ul#new-hotdog-creation {
 h3 {
   font-family: 'Permanent Marker', cursive;
   font: white;
+  font-size: 40px;
 
   background-color: #ffff80;
 
   border: 7px solid rgb(235, 49, 111);
-  border-style: dotted;
+  border-style: double;
   padding: 20px;
   margin: auto;
   align-content: center;
@@ -201,6 +203,15 @@ legend {
   font-size: large;
 }
 
+@keyframes move {
+  0% {
+    transform: translate(0);
+  }
+  50% {
+    transform: translate(1100px);
+  }
+}
+
 #truck {
   position: relative
 }
@@ -208,8 +219,7 @@ legend {
 #food-truck {
   max-width:100%;
   height: 600px;
-  /* align-content: center; */
-  /* position: absolute */
+  animation: move 1000s linear infinite; 
 }
 
 @font-face {
