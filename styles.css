@@ -11,22 +11,38 @@
   font-family: 'Fascinate Inline', cursive; --> cutsie
   */
 
-/* .flex-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    height: 100px;
-  } */
+/* ---------------------------- BODY & GLOBAL ATTRIBUTES ----------------------------*/
+/* ----------------------------------------------------------------------------------*/
 
-  /* .flex-container > div {
-    background-color: #0cbeca;
-    width: 100px;
-    margin: 10px;
-    text-align: center;
-    line-height: 75px;
-    font-size: 30px;
-  } */
+h6 {
+  color: white;
+}
+
+body {
+  background-image: url("images/hotdog-background-small-transp.png");
+  margin-left: 10rem;
+  margin-right: 10rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+h3 {
+  font-family: 'Permanent Marker', cursive;
+  font: white;
+  font-size: 40px;
+
+  background-color: #ffff80;
+
+  border: 7px solid rgb(235, 49, 111);
+  border-style: double;
+  padding: 20px;
+  /* margin: 2em; */
+  align-content: center;
+  text-align: center;
+}
+
+/* ------------------------------------- NEON TITLE -------------------------------------*/
+/* --------------------------------------------------------------------------------------*/
 
   #welcome-text {
     font-family: 'HELLODENVERDISPLAYREGULARRg';
@@ -79,99 +95,41 @@ fieldset {
     margin-bottom: 20px;
 }
 
-body {
-  background-image: url("images/hotdog-background-small-transp.png");
-  margin-left: 10rem;
-  margin-right: 10rem;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+/* ------------------------------------- SIGN IN & SIGN UP -------------------------------------*/
+/* ---------------------------------------------------------------------------------------------*/
+
+.sign-in-div-class {
+  background-color: #ffff80;
+  margin: 2rem;
+  padding: 2rem;
+  border-radius: 2rem;
 }
 
-@keyframes flashing {
-  from {background-color: white;}
-  to {background-color:  rgb(235, 49, 111);}
-}
+/* ------------------------------------- THE HOTDOG TRUCK -------------------------------------*/
+/* --------------------------------------------------------------------------------------------*/
 
-/* h1 {
-  width: 500px;
-  border: 7px solid rgb(235, 49, 111);
-  border-style: dotted;
-  padding: 10px;
-  margin: auto;
-  background-color: #ffd633;
-  font-family: 'Permanent Marker', cursive;
-  font-weight: bolder;
-  font-size: 50px;
-  text-align: center;
-  align-content: center;
-
-  animation-name: flashing;
-  animation-duration: infinite;
-  } */
-
-  #home-subtitle {
-    width: 300px;
-    border: 7px solid rgb(235, 49, 111);
-    border-style: dotted;
-    padding: 20px;
-    background-color: #ffff80;
-    font-family: 'Permanent Marker', cursive;
-    font-weight: bolder;
-    text-align: center;
+@keyframes move {
+  0% {
+    transform: translate(0);
   }
-
-  #home-header {
-    /* align-content: center; */
-    text-align: center;
+  50% {
+    transform: translate(80%);
   }
-
-  /* #home-title {
-    width: 500px;
-    border: 7px solid rgb(235, 49, 111);
-    border-style: dotted;
-    padding: 10px;
-    margin: auto;
-    align-content: center;
-    background-color: #ffff80;
-    font-family: 'Permanent Marker', cursive;
-    font-weight: bolder;
-    text-align: center;
-
-    animation-name: flashing;
-    animation-duration: infinite;
-  } */
-
-.new-condiment-div {
-    background-color: black;
-    font-family: 'Courier Prime', monospace;
-    font: white;
-    font-size: 30px;
-    font-weight: bolder;
-    float: left;
-    width: 33.33%;
 }
 
-#global-condiment-div {
-  padding: 3rem;
+#truck {
+  position: relative
 }
 
-.hotdog-condiments {
-	display: table;   /* Allows the centering to work */
+#food-truck {
+  max-width:100%;
+  height: 300px;
+  /* height: 100vmax; */
+  animation: move 100s linear infinite; 
 }
 
-#your-creation {
-	height: 84px;
-	background: url(images/bar-bg.jpg) repeat-x;
-}
-
-ul#new-hotdog-creation {
-	min-width: 696px;
-	list-style: none;
-	padding-top: 20px;
-	}
-	ul#new-hotdog-creation li {
-		display: inline;
-	}
+/* ---------------------------- MAKE YOUR OWN (full condiment list) ----------------------------*/
+/* ---------------------------------------------------------------------------------------------*/
 
 .make-your-own-div {
   font-family: 'Courier Prime', monospace;
@@ -194,39 +152,51 @@ ul#new-hotdog-creation {
   margin-bottom: 3rem;
 }
 
-h3 {
-  font-family: 'Permanent Marker', cursive;
-  font: white;
-  font-size: 40px;
-
-  background-color: #ffff80;
-
-  border: 7px solid rgb(235, 49, 111);
-  border-style: double;
-  padding: 20px;
-  /* margin: 2em; */
-  align-content: center;
-  text-align: center;
-}
-
-.menu-item-div {
-  background-color: crimson;
-}
-
-.sign-in-div-class {
-  background-color: #ffff80;
-  margin: 5rem;
-  padding: 2rem;
-  border-radius: 2rem;
-}
+/* ------------------------------------- YOUR CREATION -------------------------------------*/
+/* -----------------------------------------------------------------------------------------*/
 
 #your-creation {
   background-color: darkseagreen;
 }
 
-h6 {
-  color: white;
+#your-creation {
+	height: 84px;
+	background: url(images/bar-bg.jpg) repeat-x;
 }
+
+ul#new-hotdog-creation {
+	min-width: 696px;
+	list-style: none;
+	padding-top: 20px;
+	}
+	ul#new-hotdog-creation li {
+		display: inline;
+	}
+
+/* ------------------------------------- HOTDOG DINER MENU -------------------------------------*/
+/* ---------------------------------------------------------------------------------------------*/
+
+.menu-item-div {
+  background-color: crimson;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 legend {
   font-weight: 900;
@@ -234,25 +204,8 @@ legend {
   font-size: large;
 }
 
-@keyframes move {
-  0% {
-    transform: translate(0);
-  }
-  50% {
-    transform: translate(80%);
-  }
-}
-
-#truck {
-  position: relative
-}
-
-#food-truck {
-  max-width:100%;
-  height: 300px;
-  /* height: 100vmax; */
-  animation: move 100s linear infinite; 
-}
+/* -------------------- FONT REFERENCES --------------------*/
+/* ---------------------------------------------------------*/
 
 @font-face {
   font-family: 'HELLODENVERDISPLAYBOLDBoldRg';

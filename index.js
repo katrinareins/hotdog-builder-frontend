@@ -15,24 +15,14 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // create each condiment 
     function createCondiment(condiment){
-        // let condimentDiv = document.getElementById('make-your-own')
         let ul = document.getElementById('condiment-ul')
         let li = document.createElement('li')
-        // let newCondimentDiv = document.createElement('div')
         let selectButton = document.createElement('input')
     
-        // let newCondiment = document.createElement('h6')
-        // newCondiment.textContent = condiment
-        // newCondimentDiv.className = "new-condiment-div"
         li.textContent = condiment
         selectButton.type = 'radio'
         selectButton.className = "radio-button-class"
-    
-        // newCondimentDiv.appendChild(newCondiment)
-        // newCondimentDiv.appendChild(selectButton)
-        // condimentDiv.appendChild(newCondimentDiv)
-    
-        // condimentDiv.appendChild(ul)
+
         ul.appendChild(li) 
         li.appendChild(selectButton)
 
