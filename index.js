@@ -15,19 +15,26 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // create each condiment 
     function createCondiment(condiment){
-        let condimentDiv = document.getElementById('make-your-own')
-        let newCondimentDiv = document.createElement('div')
+        // let condimentDiv = document.getElementById('make-your-own')
+        let ul = document.getElementById('condiment-ul')
+        let li = document.createElement('li')
+        // let newCondimentDiv = document.createElement('div')
         let selectButton = document.createElement('input')
     
-        let newCondiment = document.createElement('h6')
-        newCondiment.textContent = condiment
-        newCondimentDiv.className = "new-condiment-div"
+        // let newCondiment = document.createElement('h6')
+        // newCondiment.textContent = condiment
+        // newCondimentDiv.className = "new-condiment-div"
+        li.textContent = condiment
         selectButton.type = 'radio'
     
-        newCondimentDiv.appendChild(newCondiment)
-        newCondimentDiv.appendChild(selectButton)
-        condimentDiv.appendChild(newCondimentDiv)
+        // newCondimentDiv.appendChild(newCondiment)
+        // newCondimentDiv.appendChild(selectButton)
+        // condimentDiv.appendChild(newCondimentDiv)
     
+        // condimentDiv.appendChild(ul)
+        ul.appendChild(li) 
+        li.appendChild(selectButton)
+
         selectButton.addEventListener('click', function(){
             let ul = document.getElementById('new-hotdog-creation')
             let li = document.createElement('li')
@@ -50,10 +57,13 @@ document.addEventListener('DOMContentLoaded', function(){
     
     // get list of ingredients
     document.getElementById('create-hotdog').addEventListener('click', function(event){
-        let ingredientList = event.target.parentNode.querySelectorAll('li')
+        let ul = document.getElementById('new-hotdog-creation')
+        let ingredients = ul.childNodes
+        // let ingredientList = event.target.parentNode.querySelectorAll('li')
+        console.log(ingredients)
         let ingredientArray = []
 
-        ingredientList.forEach(ingredient => {
+        ingredients.forEach(ingredient => {
             ingredientArray.push(ingredient.innerText)
         })
 

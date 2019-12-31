@@ -163,9 +163,10 @@ ul#new-hotdog-creation {
 	}
 
 .make-your-own-div {
-  background-color: black;
+  background-color: cornflowerblue;
   font-family: 'Courier Prime', monospace;
   font: white;
+  
 }
 
 h3 {
@@ -178,7 +179,7 @@ h3 {
   border: 7px solid rgb(235, 49, 111);
   border-style: double;
   padding: 20px;
-  /* margin: auto; */
+  /* margin: 2em; */
   align-content: center;
   text-align: center;
 }
@@ -213,7 +214,7 @@ legend {
     transform: translate(0);
   }
   50% {
-    transform: translate(1100px);
+    transform: translate(80%);
   }
 }
 
@@ -223,7 +224,8 @@ legend {
 
 #food-truck {
   max-width:100%;
-  height: 600px;
+  /* height: 600px; */
+  /* height: 100vmax; */
   animation: move 1000s linear infinite; 
 }
 
