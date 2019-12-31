@@ -1,6 +1,5 @@
-/* opacity: 0.5; --> to make items transparent*/ 
-
-/* google font families */
+/* ----------------------------- FONT FAMILY REFERENCES -----------------------------*/
+/* ----------------------------------------------------------------------------------*/
 
   /* 
   font-family: 'Bungee Inline', cursive; --> super fat
@@ -13,10 +12,6 @@
 
 /* ---------------------------- BODY & GLOBAL ATTRIBUTES ----------------------------*/
 /* ----------------------------------------------------------------------------------*/
-
-h6 {
-  color: white;
-}
 
 body {
   background-image: url("images/hotdog-background-small-transp.png");
@@ -39,6 +34,15 @@ h3 {
   /* margin: 2em; */
   align-content: center;
   text-align: center;
+}
+
+h4 {
+  font-family: 'Permanent Marker', cursive;
+  font-weight: bold;
+}
+
+h6 {
+  color: white;
 }
 
 /* ------------------------------------- NEON TITLE -------------------------------------*/
@@ -86,7 +90,7 @@ h3 {
     0 0 0.4vw  0.6vw #e97272, 
     0 0   4vw  0.4vw #e50b0b,
     inset 0 0 1.5vw  0.4vw #e50b0b,
-    inset 0 0 0.4vw  0.2vw #e97272,
+    inset 0 0 0.4vw  0.2vw rgb(221, 76, 76),
     inset 0 0 0.5vw  0.2vw #fff7f7;
     border-radius: 1.5rem;
   }
@@ -155,23 +159,32 @@ fieldset {
 /* ------------------------------------- YOUR CREATION -------------------------------------*/
 /* -----------------------------------------------------------------------------------------*/
 
-#your-creation {
+#new-hotdog-creation-div {
   background-color: darkseagreen;
+  margin-bottom: 3rem;
+  margin-top: 3rem;
+  padding: 15px;
 }
 
-#your-creation {
-	height: 84px;
-	background: url(images/bar-bg.jpg) repeat-x;
-}
-
-ul#new-hotdog-creation {
+/* ul#new-hotdog-creation {
 	min-width: 696px;
 	list-style: none;
 	padding-top: 20px;
 	}
 	ul#new-hotdog-creation li {
 		display: inline;
-	}
+  } */
+  
+  .labeled-button {
+    background-color: rgb(235, 49, 111);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    color: white;
+    font-family: 'Permanent Marker', cursive;
+    font-weight: lighter;
+    font-size: large;
+    text-align: center;
+  }
 
 /* ------------------------------------- HOTDOG DINER MENU -------------------------------------*/
 /* ---------------------------------------------------------------------------------------------*/
