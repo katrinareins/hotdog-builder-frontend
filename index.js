@@ -15,7 +15,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // create each condiment 
     function createCondiment(condiment){
-        let condimentDiv = document.getElementById('condiment-list')
+        // let condimentDiv = document.getElementById('condiment-list')
+        let condimentDiv = document.getElementById('make-your-own')
         let newCondimentDiv = document.createElement('div')
         let selectButton = document.createElement('input')
     
@@ -36,6 +37,8 @@ document.addEventListener('DOMContentLoaded', function(){
             ul.appendChild(li)
         })
     }
+
+    // add title to condiment 
 
     // create list of all hotdogs
     function getAllHotdogs(){

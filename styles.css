@@ -1,7 +1,5 @@
 /* opacity: 0.5; --> to make items transparent*/ 
 
-
-
 .flex-container {
     display: flex;
     flex-direction: row;
@@ -28,8 +26,26 @@ body {
   background-repeat: repeat-y;
 }
 
+@keyframes flashing {
+  from {background-color: white;}
+  to {background-color:  rgb(235, 49, 111);}
+}
+
 h1 {
-    font: ;
+  width: 500px;
+  border: 7px solid rgb(235, 49, 111);
+  border-style: dotted;
+  padding: 10px;
+  margin: auto;
+  align-content: center;
+  background-image: url('images/yellow.png');
+  font-family: 'Permanent Marker', cursive;
+  font-weight: bolder;
+  font-size: 50px;
+  text-align: center;
+
+  animation-name: flashing;
+  animation-duration: infinite;
   }
 
   #home-title {
@@ -39,28 +55,39 @@ h1 {
     padding: 10px;
     margin: auto;
     align-content: center;
-    animation-name: flashing;
-    animation-duration: infinite;
     background-image: url('images/yellow.png');
     font-family: 'Permanent Marker', cursive;
     font-weight: bolder;
     text-align: center;
-  }
-  
-  @keyframes flashing {
-    from {background-color: white;}
-    to {background-color:  rgb(235, 49, 111);}
-  }
-  
-#home-header {
-    
 
-}
+    animation-name: flashing;
+    animation-duration: infinite;
+  }
 
 .new-condiment-div {
     background-color: black;
     font-family: 'Courier Prime', monospace;
     font: white;
+}
+
+.make-your-own-div {
+  background-color: black;
+  font-family: 'Courier Prime', monospace;
+  font: white;
+}
+
+h3 {
+  font-family: 'Permanent Marker', cursive;
+  font: white;
+
+  background-image: url('images/yellow.png');
+
+  border: 7px solid rgb(235, 49, 111);
+  border-style: dotted;
+  padding: 20px;
+  margin: auto;
+  align-content: center;
+  text-align: center;
 }
 
 .menu-item-div {
