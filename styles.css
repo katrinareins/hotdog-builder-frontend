@@ -28,30 +28,6 @@
     font-size: 30px;
   } */
 
-  @font-face {
-    font-family: 'HELLODENVERDISPLAYBOLDBoldRg';
-    src: url('fonts/hellodenverdisplaybold_v1.6.eot');
-    src: url('fonts/hellodenverdisplaybold_v1.6.eot?#iefix') format('embedded-opentype'),
-         url('fonts/hellodenverdisplaybold_v1.6.woff') format('woff'),
-         url('fonts/hellodenverdisplaybold_v1.6.ttf') format('truetype'),
-         url('fonts/hellodenverdisplaybold_v1.6.svg#HELLODENVERDISPLAYBOLDBoldRg') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'HELLODENVERDISPLAYREGULARRg';
-    src: url('fonts/hellodenverdisplayregular_v1.6.eot');
-    src: url('fonts/hellodenverdisplayregular_v1.6.eot?#iefix') format('embedded-opentype'),
-         url('fonts/hellodenverdisplayregular_v1.6.woff') format('woff'),
-         url('fonts/hellodenverdisplayregular_v1.6.ttf') format('truetype'),
-         url('fonts/hellodenverdisplayregular_v1.6.svg#HELLODENVERDISPLAYREGULARRg') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
   .neon-text {
     font-family: 'HELLODENVERDISPLAYBOLDBoldRg';
     font-size: 8rem;
@@ -72,6 +48,12 @@
 
   .neon-wrapper {
     background-color: black; 
+    border-radius: 3rem;
+    border: 7px solid rgb(235, 49, 111);
+    border-style: dotted;
+    padding: 6rem;
+    margin: auto;
+    width: fit-content;
   }
 
 fieldset {
@@ -212,4 +194,28 @@ legend {
   max-width:100%;
   height: 500px;
   position: absolute
+}
+
+@font-face {
+  font-family: 'HELLODENVERDISPLAYBOLDBoldRg';
+  src: url('fonts/hellodenverdisplaybold_v1.6.eot');
+  src: url('fonts/hellodenverdisplaybold_v1.6.eot?#iefix') format('embedded-opentype'),
+       url('fonts/hellodenverdisplaybold_v1.6.woff') format('woff'),
+       url('fonts/hellodenverdisplaybold_v1.6.ttf') format('truetype'),
+       url('fonts/hellodenverdisplaybold_v1.6.svg#HELLODENVERDISPLAYBOLDBoldRg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'HELLODENVERDISPLAYREGULARRg';
+  src: url('fonts/hellodenverdisplayregular_v1.6.eot');
+  src: url('fonts/hellodenverdisplayregular_v1.6.eot?#iefix') format('embedded-opentype'),
+       url('fonts/hellodenverdisplayregular_v1.6.woff') format('woff'),
+       url('fonts/hellodenverdisplayregular_v1.6.ttf') format('truetype'),
+       url('fonts/hellodenverdisplayregular_v1.6.svg#HELLODENVERDISPLAYREGULARRg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
 }
