@@ -1,5 +1,7 @@
 /* opacity: 0.5; --> to make items transparent*/ 
 
+
+
 .flex-container {
     display: flex;
     flex-direction: row;
@@ -30,29 +32,35 @@ h1 {
     font: ;
   }
 
-@keyframes flashing-title {
-  from {background-color: white;}
-  to {background-color:  rgb(235, 49, 111);}
-}
-
-#home-title {
+  #home-title {
     width: 300px;
     border: 7px solid rgb(235, 49, 111);
     border-style: dotted;
     padding: 10px;
     margin: auto;
     align-content: center;
-    animation-name: flashing-title;
+    animation-name: flashing;
     animation-duration: infinite;
-}
-
+    background-image: url('images/yellow.png');
+    font-family: 'Permanent Marker', cursive;
+    font-weight: bolder;
+    text-align: center;
+  }
+  
+  @keyframes flashing {
+    from {background-color: white;}
+    to {background-color:  rgb(235, 49, 111);}
+  }
+  
 #home-header {
-    /* background-color: darkgreen; */
+    
+
 }
 
 .new-condiment-div {
-    background-color: cornflowerblue;
-    font-family: monospace;
+    background-color: black;
+    font-family: 'Courier Prime', monospace;
+    font: white;
 }
 
 .menu-item-div {
@@ -60,9 +68,19 @@ h1 {
 }
 
 #sign-in-div {
-  background-color: darkorchid;
+  background-image: url('images/yellow.png');
 }
 
 #your-creation {
   background-color: darkseagreen;
+}
+
+h6 {
+  color: white;
+}
+
+legend {
+  font-weight: 900;
+  font-style: oblique;
+  font-size: large;
 }
