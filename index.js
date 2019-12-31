@@ -15,9 +15,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // create each condiment 
     function createCondiment(condiment){
-        // let condimentDiv = document.getElementById('condiment-list')
-        let condimentDiv = document.getElementById('global-condiment-div')
-        
+        let condimentDiv = document.getElementById('make-your-own')
         let newCondimentDiv = document.createElement('div')
         let selectButton = document.createElement('input')
     
@@ -306,22 +304,22 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
     // make the truck move
-    // function truckMove() {
-    //     var elem = document.getElementById("food-truck");
-    //     var pos = 0;
-    //     var id = setInterval(frame, 10);
-    //     function frame() {
-    //       if (pos == 350) {
-    //         clearInterval(id);
-    //       } else {
-    //         pos++;
-    //         elem.style.top = pos + 'px';
-    //         elem.style.left = pos + 'px';
-    //       }
-    //     }
-    //   }
+    function truckMove() {
+        var elem = document.getElementById("food-truck");
+        var pos = 0;
+        var id = setInterval(frame, 10);
+        function frame() {
+          if (pos == 350) {
+            clearInterval(id);
+          } else {
+            pos++;
+            elem.style.top = pos + 'px';
+            elem.style.left = pos + 'px';
+          }
+        }
+      }
 
-    //   truckMove();
+      truckMove();
 
     
 })
