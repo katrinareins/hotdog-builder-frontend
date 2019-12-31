@@ -186,11 +186,30 @@ fieldset {
     text-align: center;
   }
 
+  #bonus {
+    background-color: cornflowerblue;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    color: gold;
+    font-family: 'Permanent Marker', cursive;
+    font-weight: lighter;
+    font-size: large;
+    text-align: center;
+  }
+
 /* ------------------------------------- HOTDOG DINER MENU -------------------------------------*/
 /* ---------------------------------------------------------------------------------------------*/
 
 .menu-item-div {
-  background-color: crimson;
+  background-color: rgb(235, 49, 111);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: white;
+  font-family: 'Permanent Marker', cursive;
+  font-weight: lighter;
+  font-size: large;
+  text-align: center;
+  margin: 0.5rem;
 }
 
 
