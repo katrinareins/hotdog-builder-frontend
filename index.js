@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function(){
         // newCondimentDiv.className = "new-condiment-div"
         li.textContent = condiment
         selectButton.type = 'radio'
+        selectButton.className = "radio-button-class"
     
         // newCondimentDiv.appendChild(newCondiment)
         // newCondimentDiv.appendChild(selectButton)
@@ -59,8 +60,6 @@ document.addEventListener('DOMContentLoaded', function(){
     document.getElementById('create-hotdog').addEventListener('click', function(event){
         let ul = document.getElementById('new-hotdog-creation')
         let ingredients = ul.childNodes
-        // let ingredientList = event.target.parentNode.querySelectorAll('li')
-        console.log(ingredients)
         let ingredientArray = []
 
         ingredients.forEach(ingredient => {
@@ -68,6 +67,8 @@ document.addEventListener('DOMContentLoaded', function(){
         })
 
         let formattedData = ingredientArray.toString();
+
+        // let radioButtons = 
         postHotdog(formattedData);
         clearNewHotdog();
     })
@@ -79,10 +80,10 @@ document.addEventListener('DOMContentLoaded', function(){
             ul.removeChild(ul.firstChild);
           }
 
-        let condimentDiv = document.getElementsByClassName('new-condiment-div')
-        for(var i = 0; i < condimentDiv.length; i++) {
-            condimentDiv[i].lastChild.checked = false;
-        }
+        let condimentRadioB = document.getElementsByClassName('radio-button-class')
+        for(var i = 0; i < condimentRadioB.length; i++) {
+            condimentRadioB[i].checked = false;
+        } 
     }
 
     // create (POST) new hotdog
