@@ -1,5 +1,16 @@
 /* opacity: 0.5; --> to make items transparent*/ 
 
+/* google font families */
+
+  /* 
+  font-family: 'Bungee Inline', cursive; --> super fat
+  font-family: 'Faster One', cursive; --> the one with arrows
+  font-family: 'Fredericka the Great', cursive; --> draw with pencil (like)
+  font-family: 'Monoton', cursive; --> three lines (like)
+  font-family: 'Permanent Marker', cursive; --> fat cursive
+  font-family: 'Fascinate Inline', cursive; --> cutsie
+  */
+
 /* .flex-container {
     display: flex;
     flex-direction: row;
@@ -17,13 +28,58 @@
     font-size: 30px;
   } */
 
+  @font-face {
+    font-family: 'HELLODENVERDISPLAYBOLDBoldRg';
+    src: url('fonts/hellodenverdisplaybold_v1.6.eot');
+    src: url('fonts/hellodenverdisplaybold_v1.6.eot?#iefix') format('embedded-opentype'),
+         url('fonts/hellodenverdisplaybold_v1.6.woff') format('woff'),
+         url('fonts/hellodenverdisplaybold_v1.6.ttf') format('truetype'),
+         url('fonts/hellodenverdisplaybold_v1.6.svg#HELLODENVERDISPLAYBOLDBoldRg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'HELLODENVERDISPLAYREGULARRg';
+    src: url('fonts/hellodenverdisplayregular_v1.6.eot');
+    src: url('fonts/hellodenverdisplayregular_v1.6.eot?#iefix') format('embedded-opentype'),
+         url('fonts/hellodenverdisplayregular_v1.6.woff') format('woff'),
+         url('fonts/hellodenverdisplayregular_v1.6.ttf') format('truetype'),
+         url('fonts/hellodenverdisplayregular_v1.6.svg#HELLODENVERDISPLAYREGULARRg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+  .neon-text {
+    font-family: 'HELLODENVERDISPLAYBOLDBoldRg';
+    font-size: 8rem;
+    color: #ffd8d8;
+    text-align: center;
+  }
+
+  .neon-text {
+    text-shadow: 
+    .1vw 0vw .25vw #ffd8d8, .2vw 0vw .25vw #ffd8d8, .4vw 0vw .25vw #ffd8d8, 
+    .1vw 0vw   0vw #f25757, .2vw 0vw   0vw #f25757, .4vw 0vw   0vw #f25757,
+    .1vw 0vw  .1vw #f25757, .2vw 0vw  .1vw #f25757, .4vw 0vw  .1vw #f25757,
+    .1vw 0vw   2vw #f25757, .2vw 0vw   2vw #f25757, .4vw 0vw   2vw #f25757, 
+    .1vw 0vw   1vw #e50b0b, .2vw 0vw   1vw #e50b0b, .4vw 0vw   5vw #e50b0b, 
+    .1vw 0vw   5vw #e50b0b, .2vw 0vw  20vw #e50b0b, .4vw 0vw  10vw #e50b0b,
+    .1vw 0vw  10vw #e50b0b, .2vw 0vw  30vw #e50b0b, .4vw 0vw  10vw #e50b0b;
+  }
+
+  .neon-wrapper {
+    background-color: black; 
+  }
+
 fieldset {
     margin-bottom: 20px;
 }
 
 body {
   background-image: url("images/hotdog-background-small-transp.png");
-  background-repeat: repeat-y;
 }
 
 @keyframes flashing {
@@ -38,7 +94,7 @@ h1 {
   padding: 10px;
   margin: auto;
   align-content: center;
-  background-image: url('images/yellow.png');
+  background-color: #ffd633;
   font-family: 'Permanent Marker', cursive;
   font-weight: bolder;
   font-size: 50px;
@@ -48,14 +104,30 @@ h1 {
   animation-duration: infinite;
   }
 
-  #home-title {
+  #home-subtitle {
     width: 300px;
     border: 7px solid rgb(235, 49, 111);
     border-style: dotted;
     padding: 10px;
     margin: auto;
     align-content: center;
-    background-image: url('images/yellow.png');
+    background-color: #ffff80;
+    font-family: 'Permanent Marker', cursive;
+    font-weight: bolder;
+    text-align: center;
+
+    animation-name: flashing;
+    animation-duration: infinite;
+  }
+
+  #home-title {
+    width: 500px;
+    border: 7px solid rgb(235, 49, 111);
+    border-style: dotted;
+    padding: 10px;
+    margin: auto;
+    align-content: center;
+    /* background-color: #ffff80; */
     font-family: 'Permanent Marker', cursive;
     font-weight: bolder;
     text-align: center;
@@ -68,6 +140,7 @@ h1 {
     background-color: black;
     font-family: 'Courier Prime', monospace;
     font: white;
+    font-size: 20px;
 }
 
 .hotdog-condiments {
@@ -99,7 +172,7 @@ h3 {
   font-family: 'Permanent Marker', cursive;
   font: white;
 
-  background-image: url('images/yellow.png');
+  background-color: #ffff80;
 
   border: 7px solid rgb(235, 49, 111);
   border-style: dotted;
@@ -114,7 +187,7 @@ h3 {
 }
 
 .sign-in-div-class {
-  background-image: url('images/yellow.png');
+  background-color: #ffff80;
 }
 
 #your-creation {
@@ -129,4 +202,14 @@ legend {
   font-weight: 900;
   font-style: oblique;
   font-size: large;
+}
+
+#truck {
+  position: relative
+}
+
+#food-truck {
+  max-width:100%;
+  height: 500px;
+  position: absolute
 }
