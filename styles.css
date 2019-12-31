@@ -163,10 +163,20 @@ ul#new-hotdog-creation {
 	}
 
 .make-your-own-div {
-  background-color: cornflowerblue;
   font-family: 'Courier Prime', monospace;
+}
+
+#condiment-ul-div {
   font: white;
-  
+  /* background-color: black;
+  color: white; */
+  color: black;
+  background-color: white;
+  /* padding: 1rem; */
+  /* border-image: url(images/checkerboard.jpg) 30 round; */
+  border: 30px solid transparent;
+  padding: 15px;
+  border-image: url(images/checkerboard-pattern-small.jpg) 50 round;
 }
 
 h3 {
