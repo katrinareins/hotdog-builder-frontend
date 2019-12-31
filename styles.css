@@ -35,7 +35,7 @@
 
   .neon-text {
     font-family: 'HELLODENVERDISPLAYBOLDBoldRg';
-    font-size: 8rem;
+    font-size: 10rem;
     color: #ffd8d8;
     text-align: center;
   }
@@ -53,12 +53,9 @@
 
   .neon-wrapper {
     background-color: black; 
-    /* border-radius: 3rem;
-    border: 7px solid rgb(235, 49, 111);
-    border-style: dotted; */
     padding: 8rem;
-    margin: auto;
-    width: fit-content;
+    /* margin: auto;
+    width: fit-content; */
 
     box-shadow:
     0 0 0.1vw  0.4vw #fff7f7,   
@@ -76,6 +73,7 @@ fieldset {
 
 body {
   background-image: url("images/hotdog-background-small-transp.png");
+  margin: 15rem;
 }
 
 @keyframes flashing {
@@ -184,6 +182,9 @@ h3 {
 
 .sign-in-div-class {
   background-color: #ffff80;
+  margin: 5rem;
+  padding: 2rem;
+  border-radius: 2rem;
 }
 
 #your-creation {
