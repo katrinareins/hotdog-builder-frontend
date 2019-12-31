@@ -152,9 +152,10 @@ document.addEventListener('DOMContentLoaded', function(){
         })
         
         let div = event.target.parentNode
-        while (div.firstChild) {
-            div.removeChild(div.firstChild);
-          }
+        div.remove();
+        // while (div.firstChild) {
+        //     div.removeChild(div.firstChild);
+        //   }
     }
 
     // add hotdog to DOM
