@@ -30,14 +30,20 @@
 
   #welcome-text {
     font-family: 'HELLODENVERDISPLAYREGULARRg';
-    font-size: 5rem;
+    /* font-size: 5rem; */
+    font-size: 3rem;
+    margin: auto;
+    padding: 30px 0;
   }
 
   .neon-text {
     font-family: 'HELLODENVERDISPLAYBOLDBoldRg';
-    font-size: 10rem;
+    font-size: 7rem;
+    /* font-size: x-large; */
     color: #ffd8d8;
     text-align: center;
+    margin: auto;
+    padding: 10px 0;
   }
 
   .neon-text {
@@ -53,9 +59,11 @@
 
   .neon-wrapper {
     background-color: black; 
-    padding: 8rem;
+    /* padding: 5rem; */
     margin: auto;
-    width: fit-content;
+    /* width: fit-content; */
+    width: 70%;
+    height: 15rem;
 
     box-shadow:
     0 0 0.1vw  0.4vw #fff7f7,   
@@ -73,7 +81,10 @@ fieldset {
 
 body {
   background-image: url("images/hotdog-background-small-transp.png");
-  margin: 15rem;
+  margin-left: 10rem;
+  margin-right: 10rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 @keyframes flashing {
@@ -180,6 +191,7 @@ ul#new-hotdog-creation {
   border: 30px solid transparent;
   padding: 15px;
   border-image: url(images/checkerboard-pattern-small.jpg) 50 round;
+  margin-bottom: 3rem;
 }
 
 h3 {
@@ -237,9 +249,9 @@ legend {
 
 #food-truck {
   max-width:100%;
-  /* height: 600px; */
+  height: 300px;
   /* height: 100vmax; */
-  animation: move 1000s linear infinite; 
+  animation: move 100s linear infinite; 
 }
 
 @font-face {
