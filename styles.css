@@ -109,6 +109,12 @@ fieldset {
   border-radius: 2rem;
 }
 
+legend {
+  font-weight: 900;
+  font-style: oblique;
+  font-size: large;
+}
+
 /* ------------------------------------- THE HOTDOG TRUCK -------------------------------------*/
 /* --------------------------------------------------------------------------------------------*/
 
@@ -129,7 +135,7 @@ fieldset {
   max-width:100%;
   height: 300px;
   /* height: 100vmax; */
-  animation: move 100s linear infinite; 
+  animation: move 10s linear infinite; 
 }
 
 /* ---------------------------- MAKE YOUR OWN (full condiment list) ----------------------------*/
@@ -166,14 +172,14 @@ fieldset {
   padding: 15px;
 }
 
-/* ul#new-hotdog-creation {
+ul#new-hotdog-creation {
 	min-width: 696px;
 	list-style: none;
 	padding-top: 20px;
 	}
 	ul#new-hotdog-creation li {
-		display: inline;
-  } */
+		/* display: inline; */
+  }
   
   .labeled-button {
     background-color: rgb(235, 49, 111);
@@ -210,30 +216,6 @@ fieldset {
   font-size: large;
   text-align: center;
   margin: 0.5rem;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-legend {
-  font-weight: 900;
-  font-style: oblique;
-  font-size: large;
 }
 
 /* -------------------- FONT REFERENCES --------------------*/

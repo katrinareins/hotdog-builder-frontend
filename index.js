@@ -6,14 +6,14 @@ document.addEventListener('DOMContentLoaded', function(){
     getAllHotdogs();
     hideActiveUser();
 
-    // list of condiments to select from
-    let condimentArray = ["ketchup", "mustard", "onions", "jalapenos", "cream cheese", "hot sauce", "sauteed onions", "poppy seed bun", "relish", "dill pickle spear", "tomato slices", "pickled peppers", "celery salt", "all-beef hot dog", "Beyond Sausage Chicago Dog"]
+    // list of condiments 
+    let condimentArray = ["ketchup", "mustard", "onions", "jalapenos", "cream cheese", "hot sauce", "sauteed onions", "poppy seed bun", "relish", "dill pickle spear", "tomato slices", "pickled peppers", "celery salt"]
 
+    // create each condiment 
     condimentArray.forEach(condiment => {
         createCondiment(condiment)
     })
 
-    // create each condiment 
     function createCondiment(condiment){
         let ul = document.getElementById('condiment-ul')
         let li = document.createElement('li')
@@ -34,19 +34,8 @@ document.addEventListener('DOMContentLoaded', function(){
             ul.appendChild(li)
         })
     }
-
-    // create list of all hotdogs
-    function getAllHotdogs(){
-        fetch(hotdogsURL)
-        .then(resp => resp.json())
-        .then(json => {
-            json.forEach(hotdog => {
-                createHotdog(hotdog)
-            })
-        })
-    }
     
-    // get list of ingredients
+    // get list of ingredients selected by user and added to the 'Your Creation' div
     document.getElementById('create-hotdog').addEventListener('click', function(event){
         let ul = document.getElementById('new-hotdog-creation')
         let ingredients = ul.childNodes
@@ -58,12 +47,11 @@ document.addEventListener('DOMContentLoaded', function(){
 
         let formattedData = ingredientArray.toString();
 
-        // let radioButtons = 
         postHotdog(formattedData);
         clearNewHotdog();
     })
 
-    // clear new hotdog list of ingredients
+    // clear new hotdog list of ingredients after user clicks to create new hotdog
     function clearNewHotdog(){
         let ul = document.getElementById('new-hotdog-creation')
         while (ul.firstChild) {
@@ -89,9 +77,27 @@ document.addEventListener('DOMContentLoaded', function(){
                 user_id: parseInt(localStorage.getItem('user').split(',')[0])
             })
         })
-        // .then(resp => console.log(resp))
-        // .catch(resp => console.log(resp))
         addHotdog(ingredients)
+    }
+    
+    // add hotdog to DOM
+    function addHotdog(hotdog){
+        let condiment = {condiment: hotdog}
+            
+        const hotdog_list = document.getElementById("all-hotdog-list")
+        const div = createHotdog(condiment)
+        hotdog_list.appendChild(div)
+    }
+
+    // create list of all hotdogs
+    function getAllHotdogs(){
+        fetch(hotdogsURL)
+        .then(resp => resp.json())
+        .then(json => {
+            json.forEach(hotdog => {
+                createHotdog(hotdog)
+            })
+        })
     }
 
     // create hotdog div
@@ -118,34 +124,7 @@ document.addEventListener('DOMContentLoaded', function(){
         return newHotdogDiv;
     }
 
-    // user can delete only own hotdogs
-    // function getHotdogsForDelete(){
-    //     fetch(hotdogsURL)
-    //     .then(resp => resp.json())
-    //     .then(json => {
-    //         deleteOwnHotdog(json)
-    //     })
-    // }
-
-    // function deleteOwnHotdog(hotdogs){
-    //     hotdogs.forEach(hotdog => {
-    //         if (hotdog.user_id === parseInt(localStorage.getItem('user').split(',')[0])){
-
-    //             console.log(hotdog)
-
-                // let divs = document.getElementsByClassName('new-hotdog-div')
-                // console.log(arr)
-                // divs.forEach(div => {
-                //     let deleteButton = document.createElement('button')
-                //     deleteButton.textContent = " X "
-                //     div.appendChild(deleteButton)
-                //     deleteButton.addEventListener('click', event => deleteHotdog(event, hotdog))
-                // })
-    //         }
-    //     })
-    // }
-
-    // delete hotdog from database & remove from DOM
+    // delete hotdog from database and DOM
     function deleteHotdog(event, hotdog){
         fetch(`http://localhost:3000/hotdogs/${hotdog.id}`, {
             method: "DELETE"
@@ -153,18 +132,6 @@ document.addEventListener('DOMContentLoaded', function(){
         
         let div = event.target.parentNode
         div.remove();
-        // while (div.firstChild) {
-        //     div.removeChild(div.firstChild);
-        //   }
-    }
-
-    // add hotdog to DOM
-    function addHotdog(hotdog){
-        let condiment = {condiment: hotdog}
-        
-        const hotdog_list = document.getElementById("all-hotdog-list")
-        const div = createHotdog(condiment)
-        hotdog_list.appendChild(div)
     }
 
     // get list of all current users
@@ -193,11 +160,9 @@ document.addEventListener('DOMContentLoaded', function(){
             let userIDString = document.getElementById('selectUser').value.split('#')[1]
             let userID = parseInt(userIDString)
             let userIdObject = {id: userID}
-            // let userName = document.getElementById('selectUser').value.split('#')[0].slice(0, -1)
             localStorage.clear()
             setLocalStorage(userIdObject)
         })
-
     }
 
     // get new user info
@@ -247,9 +212,8 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
     // show new user name as logged in & sign out functionality
+    // if this function is divided and the event listeners are added as separate functions, they no longer work.
     function showActiveUser(userName){
-        console.log(localStorage)
-
         let activeUserDiv = document.getElementById('show-active-user')
         activeUserDiv.style.display = "block";
 
@@ -261,7 +225,9 @@ document.addEventListener('DOMContentLoaded', function(){
         
         nameField.textContent = userName
         signOut.textContent = "Sign out"
+        signOut.id = "sign-out"
         deleteButton.textContent = "Delete my account"
+        deleteButton.id = "user-delete"
         
         div.appendChild(nameField)
         div.appendChild(signOut)
@@ -304,30 +270,36 @@ document.addEventListener('DOMContentLoaded', function(){
         div.style.display = "none";
     }
 
-
-    // make the truck move
-    function truckMove() {
-        var elem = document.getElementById("food-truck");
-        var pos = 0;
-        var id = setInterval(frame, 10);
-        function frame() {
-          if (pos == 350) {
-            clearInterval(id);
-          } else {
-            pos++;
-            elem.style.top = pos + 'px';
-            elem.style.left = pos + 'px';
-          }
-        }
-      }
-
-      truckMove();
-
     
 })
 
 
+    // user can delete only own hotdogs
+    // function getHotdogsForDelete(){
+    //     fetch(hotdogsURL)
+    //     .then(resp => resp.json())
+    //     .then(json => {
+    //         deleteOwnHotdog(json)
+    //     })
+    // }
 
+    // function deleteOwnHotdog(hotdogs){
+    //     hotdogs.forEach(hotdog => {
+    //         if (hotdog.user_id === parseInt(localStorage.getItem('user').split(',')[0])){
+
+    //             console.log(hotdog)
+
+                // let divs = document.getElementsByClassName('new-hotdog-div')
+                // console.log(arr)
+                // divs.forEach(div => {
+                //     let deleteButton = document.createElement('button')
+                //     deleteButton.textContent = " X "
+                //     div.appendChild(deleteButton)
+                //     deleteButton.addEventListener('click', event => deleteHotdog(event, hotdog))
+                // })
+    //         }
+    //     })
+    // }
 
 
 //*-----------STRETCH GOALS-------------*
