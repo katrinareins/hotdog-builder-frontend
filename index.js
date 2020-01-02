@@ -30,7 +30,9 @@ document.addEventListener('DOMContentLoaded', function(){
             let ul = document.getElementById('new-hotdog-creation')
             let li = document.createElement('li')
     
-            li.textContent = condiment
+            // li.textContent = condiment
+            li.innerHTML = `<img src='images/${condiment}.png' />`;
+            li.className = "toppings"
             ul.appendChild(li)
         })
     }
@@ -82,6 +84,7 @@ document.addEventListener('DOMContentLoaded', function(){
     
     // add hotdog to DOM
     function addHotdog(hotdog){
+        console.log(hotdog)
         let condiment = {condiment: hotdog}
             
         const hotdog_list = document.getElementById("all-hotdog-list")
