@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function(){
         })
     }
     
-    // get list of ingredients selected by user and added to the 'Your Creation' div
+    // get list of ingredients selected by user and add to the 'Your Creation' div
     document.getElementById('create-hotdog').addEventListener('click', function(event){
         let ul = document.getElementById('new-hotdog-creation')
         let ingredients = ul.childNodes
