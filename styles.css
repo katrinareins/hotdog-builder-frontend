@@ -105,7 +105,8 @@ legend {
 
 .sign-in-div-class {
   background-color: #ffff80;
-  margin: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 0.5rem;
   padding: 1rem;
   border-radius: 1rem;
 }
@@ -176,6 +177,16 @@ legend {
   animation: move 20s linear infinite;
 }
 
+/* ----------------------------- MAKE YOUR OWN & SHOW CREATION DIV -----------------------------*/
+/* ---------------------------------------------------------------------------------------------*/
+
+.flex-container-create {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
 /* ---------------------------- MAKE YOUR OWN (full condiment list) ----------------------------*/
 /* ---------------------------------------------------------------------------------------------*/
 
@@ -187,15 +198,17 @@ legend {
   font: white;
   color: black;
   text-transform: uppercase;
-  text-indent: 50px;
+  text-indent: 2px;
   letter-spacing: 3px;
   line-height: 1.8;
   font-size: 15px;
   font-weight: bold;
+  min-width: 300px;
   
   background-color: white;
   border: 30px solid transparent;
-  padding: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   border-image: url(images/checkerboard-pattern-small.jpg) 50 round;
   margin-bottom: 3rem;
 }
@@ -207,6 +220,7 @@ legend {
   background-color: darkseagreen;
   margin-bottom: 3rem;
   margin-top: 3rem;
+  margin-left: 3rem;
   padding: 15px;
 }
 
@@ -214,7 +228,12 @@ ul#new-hotdog-creation {
 	min-width: 696px;
 	list-style: none;
 	padding-top: 20px;
-	}
+  }
+  
+  #shawn-hotdog {
+    border-radius: 50%;
+    max-width: 60%;
+  }
   
   .labeled-button {
     background-color: rgb(235, 49, 111);
