@@ -160,7 +160,7 @@ legend {
 
 @keyframes move {
   0% {
-    transform: translate(400%);
+    transform: translate(300%);
   }
   100% {
     transform: translate(-200%);
@@ -218,22 +218,35 @@ legend {
 
 #new-hotdog-creation-div {
   margin-left: 3rem;
-  padding: 15px;
 }
 
-ul#new-hotdog-creation {
-	min-width: 696px;
+/* ul#new-hotdog-creation { */
+	/* min-width: 696px;
 	list-style: none;
-	padding-top: 20px;
-  }
+  padding-top: 20px; */
   
-  #shawn-hotdog {
+  /* grid-row: 2;
+  width: 300px;
+  text-align: center; */
+  /* } */
+  
+  #shawn-pic {
     border-radius: 50%;
-    width: 700px;
+    max-width:100%;
+    max-height: auto;
     display: grid;
+    grid-template-rows: auto auto auto;
+    /* max-height:100%; */
+    /* width: 700px; */
+    /* display: grid;
     grid-row-start: 1;
-    grid-row-end: 3;
-    
+    grid-row-end: 3; */
+  }
+
+  .toppings {
+    grid-row: 2;
+    width: 600px;
+    text-align: center;
   }
   
   .labeled-button {
@@ -241,17 +254,6 @@ ul#new-hotdog-creation {
     padding: 1rem;
     border-radius: 0.5rem;
     color: white;
-    font-family: 'Permanent Marker', cursive;
-    font-weight: lighter;
-    font-size: large;
-    text-align: center;
-  }
-
-  #bonus {
-    background-color: cornflowerblue;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    color: gold;
     font-family: 'Permanent Marker', cursive;
     font-weight: lighter;
     font-size: large;
