@@ -227,6 +227,7 @@ legend {
     border-radius: 50%;
     max-width:100%;
     max-height: auto;
+    margin: auto;
 
     grid-row: 1 / span 3;
     grid-column: 1;
@@ -235,7 +236,8 @@ legend {
   .toppings {
     grid-row: 2;
     grid-column: 1;
-    width: 300px;
+    width: 80%;
+    margin: auto;
     /* position: absolute;  */
     /* z-index: 2; */
   }
