@@ -60,15 +60,16 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // clear new hotdog list of ingredients after user clicks to create new hotdog
     function clearNewHotdog(){
-        let ul = document.getElementById('new-hotdog-creation')
-        while (ul.firstChild) {
-            ul.removeChild(ul.firstChild);
-          }
-
         let condimentRadioB = document.getElementsByClassName('radio-button-class')
         for(var i = 0; i < condimentRadioB.length; i++) {
             condimentRadioB[i].checked = false;
         } 
+
+        let toppings = document.getElementById('your-creation').getElementsByClassName('toppings')
+
+        for (var i = toppings.length - 1; i >= 0; --i) {
+            toppings[i].remove();
+          }
     }
 
     // create (POST) new hotdog
@@ -89,7 +90,6 @@ document.addEventListener('DOMContentLoaded', function(){
     
     // add hotdog to DOM
     function addHotdog(hotdog){
-        console.log(hotdog)
         let condiment = {condiment: hotdog}
             
         const hotdog_list = document.getElementById("all-hotdog-list")
