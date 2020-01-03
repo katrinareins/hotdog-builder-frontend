@@ -216,37 +216,32 @@ legend {
 /* ------------------------------------- YOUR CREATION -------------------------------------*/
 /* -----------------------------------------------------------------------------------------*/
 
-#new-hotdog-creation-div {
+#your-creation {
   margin-left: 3rem;
+  display: grid;
+  grid-template-rows: auto auto auto;
+  grid-template-columns: auto;
 }
 
-/* ul#new-hotdog-creation { */
-	/* min-width: 696px;
-	list-style: none;
-  padding-top: 20px; */
-  
-  /* grid-row: 2;
-  width: 300px;
-  text-align: center; */
-  /* } */
-  
   #shawn-pic {
     border-radius: 50%;
     max-width:100%;
     max-height: auto;
-    display: grid;
-    grid-template-rows: auto auto auto;
-    /* max-height:100%; */
-    /* width: 700px; */
-    /* display: grid;
-    grid-row-start: 1;
-    grid-row-end: 3; */
+
+    grid-row: 1 / span 3;
+    grid-column: 1;
   }
 
   .toppings {
     grid-row: 2;
-    width: 600px;
-    text-align: center;
+    grid-column: 1;
+    width: 300px;
+    /* position: absolute;  */
+    /* z-index: 2; */
+  }
+
+  #new-hotdog-creation {
+    display: none;
   }
   
   .labeled-button {

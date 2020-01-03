@@ -27,13 +27,18 @@ document.addEventListener('DOMContentLoaded', function(){
         li.appendChild(selectButton)
 
         selectButton.addEventListener('click', function(){
+            // let div = document.getElementById('hotdog-container')
+            let div = document.getElementById('your-creation')
+            let image = document.createElement('img')
+            image.src = `images/${condiment}.png`
+            image.className = "toppings"
+            div.appendChild(image)
+
             let ul = document.getElementById('new-hotdog-creation')
             let li = document.createElement('li')
-    
-            // li.textContent = condiment
-            li.innerHTML = `<img src='images/${condiment}.png' />`;
-            li.className = "toppings"
-            ul.appendChild(li)
+            li.textContent = condiment
+            ul.appendChild(li) 
+
         })
     }
     
