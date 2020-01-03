@@ -294,6 +294,15 @@ font-weight: bold;
 font-family: 'Courier Prime', monospace;
 }
 
+.delete-hotdog {
+  background-color: black;
+  color: rgb(235, 49, 111);
+  font-family: 'Permanent Marker', cursive;
+  font-weight: lighter;
+  font-size: medium;
+  text-align: center;
+}
+
 /* -------------------- FONT REFERENCES --------------------*/
 /* ---------------------------------------------------------*/
 

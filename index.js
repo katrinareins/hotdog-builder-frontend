@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', function(){
         li.appendChild(selectButton)
 
         selectButton.addEventListener('click', function(){
-            // let div = document.getElementById('hotdog-container')
             let div = document.getElementById('your-creation')
             let image = document.createElement('img')
             image.src = `images/${condiment}.png`
@@ -121,6 +120,7 @@ document.addEventListener('DOMContentLoaded', function(){
         newHotdogIngredients.textContent = hotdog.condiment
 
         let deleteButton = document.createElement('button')
+        deleteButton.className = "delete-hotdog"
         deleteButton.textContent = " X "
 
         newHotdogDiv.appendChild(newHotdogIngredients)
@@ -280,41 +280,3 @@ document.addEventListener('DOMContentLoaded', function(){
 
     
 })
-
-
-    // user can delete only own hotdogs
-    // function getHotdogsForDelete(){
-    //     fetch(hotdogsURL)
-    //     .then(resp => resp.json())
-    //     .then(json => {
-    //         deleteOwnHotdog(json)
-    //     })
-    // }
-
-    // function deleteOwnHotdog(hotdogs){
-    //     hotdogs.forEach(hotdog => {
-    //         if (hotdog.user_id === parseInt(localStorage.getItem('user').split(',')[0])){
-
-    //             console.log(hotdog)
-
-                // let divs = document.getElementsByClassName('new-hotdog-div')
-                // console.log(arr)
-                // divs.forEach(div => {
-                //     let deleteButton = document.createElement('button')
-                //     deleteButton.textContent = " X "
-                //     div.appendChild(deleteButton)
-                //     deleteButton.addEventListener('click', event => deleteHotdog(event, hotdog))
-                // })
-    //         }
-    //     })
-    // }
-
-
-//*-----------STRETCH GOALS-------------*
-//if user selects items for a special style of hot-dog, give yoda-fied life advice
-// --> Seattle Dog, Chicago Dog, OR can you guess the Chicago Dog (or Chicago Red Hot) ingredients?
-// Chicago Dog: hot dog is topped with yellow mustard, chopped white onions, bright green sweet pickle relish, a dill pickle spear, tomato slices or wedges, pickled sport peppers and a dash of celery salt;
-
-// cannot create same hotdog twice
-
-// separate homepage
